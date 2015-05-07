@@ -17,4 +17,7 @@ run add-apt-repository -y ppa:chris-lea/node.js
 run apt-get update
 run apt-get install -y build-essential nodejs
 
+# Install Meteor
+run curl https://install.meteor.com/ | sh
+
 run	/var/lib/tsuru/base/install
