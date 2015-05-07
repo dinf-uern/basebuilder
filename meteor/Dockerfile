@@ -10,5 +10,15 @@ run	mkdir /var/lib/tsuru
 run	tar -xvf basebuilder.tar.gz -C /var/lib/tsuru --strip 1
 run	cp /var/lib/tsuru/meteor/deploy /var/lib/tsuru
 run	cp /var/lib/tsuru/base/start /var/lib/tsuru
-run	curl https://install.meteor.com/ | sh
+
+# Install latest nodejs
+run apt-get install -y software-properties-common
+run add-apt-repository -y ppa:chris-lea/node.js
+run apt-get update
+run apt-get install -y build-essential nodejs
+
+# Install entrypoint
+ADD entrypoint.sh /usr/bin/entrypoint.sh
+RUN chmod +x /usr/bin/entrypoint.sh
+
 run	/var/lib/tsuru/base/install
