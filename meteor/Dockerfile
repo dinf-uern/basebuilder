@@ -17,8 +17,4 @@ run add-apt-repository -y ppa:chris-lea/node.js
 run apt-get update
 run apt-get install -y build-essential nodejs
 
-# Install entrypoint
-ADD entrypoint.sh /usr/bin/entrypoint.sh
-RUN chmod +x /usr/bin/entrypoint.sh
-
 run	/var/lib/tsuru/base/install
